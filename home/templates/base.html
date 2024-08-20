@@ -7,6 +7,22 @@
 <body>
   <div id="header">
     <h1><a href="{% url "root_path" %}">Shopify Demo Application</a></h1>
+    <div id="tabs">
+      <ul>
+        <li>
+          <a href="/orders/orders.html">Orders</a>
+        </li>
+        <li>
+          <a href="/products/products.html">Products</a>
+        </li>
+        <li>
+          <a href="/about/about.html">About</a>
+        </li>
+        <li>
+          <a href="/contact/contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
     <p id="login-link">
       {% if current_shop %}
           <span class="note">current shop</span> <a href="https://{{ current_shop.domain }}" class="shop_name">{{ current_shop.domain }}</a> <span class="note">|</span>
@@ -21,11 +37,10 @@
       <div{% if message.tags %} class="{{ message.tags }}-message"{% endif %}>{{ message }}</div>
       {% endfor %}
     {% endif %}
-    <!-- begin div.main-->
-    <div id="main">
-      {% block content %}{% endblock %}
-    </div>
-    <!-- end div.main -->
+    
   </div>
+ 
+	{% block content %}
+	{% endblock %}
 </body>
 </html>
